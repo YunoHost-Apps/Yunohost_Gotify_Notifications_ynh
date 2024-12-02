@@ -47,5 +47,7 @@ ram.runtime = "50M"
     url = "https://github.com/DeMiro5001/Yunohost_Gotify_Notifications/archive/refs/tags/0.1.tar.gz"
     sha256 = "50c3c8328f344a22136b06b0dc600facb124fd881d6b9b44effbd4e9eeb42a13"
     autoupdate.strategy = "latest_github_tag"
+    
+    [resources.system_user]
 
     [resources.data_dir]
