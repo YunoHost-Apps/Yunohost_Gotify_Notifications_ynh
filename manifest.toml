@@ -34,7 +34,7 @@ ram.runtime = "50M"
     ask.fr = "Quelle est l'addresse url de votre installation Gotify ?"
     type = "url"
 
-    [install.token]
+    [install.apptoken]
     ask.en = "App token for this server"
     ask.fr = "Jeton de l'application pour ce serveur"
     type = "string"
