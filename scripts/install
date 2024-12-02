@@ -20,7 +20,7 @@ ynh_app_setting_set --key=token --value=$token
 server_id=$(cat /etc/machine-id)
 ynh_app_setting_set --key=server_id --value=$server_id
 
-hooks_dir="/etc/yunohost/hooks.d/"
+hooks_dir="/etc/yunohost/hooks.d"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -33,6 +33,17 @@ ynh_setup_source --dest_dir="$data_dir"
 # APP INITIAL CONFIGURATION
 #=================================================
 ynh_script_progression "Adding $app's configuration files..."
+
+cd $hooks_dir
+mkdir post_domain_add
+mkdir post_domain_remove
+mkdir post_cert_update
+mkdir backup
+mkdir restore
+mkdir post_app_install
+mkdir post_app_remove
+mkdir post_app_upgrade
+
 
 ynh_config_add --template="$data_dir/post_domain_add/01-post_domain_add" --destination="$hooks_dir/post_domain_add/01-post_domain_add_$server_id"
 ynh_config_add --template="$data_dir/post_domain_remove/01-post_domain_remove" --destination="$hooks_dir/post_domain_remove/01-post_domain_remove_$server_id"
