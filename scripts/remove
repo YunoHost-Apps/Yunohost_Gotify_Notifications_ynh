@@ -22,7 +22,7 @@ rm "$hooks_dir/restore/01-restore_$server_id"
 rm "$hooks_dir/post_app_install/01-post_app_install_$server_id"
 rm "$hooks_dir/post_app_remove/01-post_app_remove_$server_id"
 rm "$hooks_dir/post_app_upgrade/01-post_app_upgrade_$server_id"
-rm "/etc/profile.d/gotify_ssh_login_$server_id.sh"### This should be a symetric version of what happens in the install script
+rm "/etc/profile.d/gotify_ssh_login_$server_id.sh"
 
 #=================================================
 # END OF SCRIPT
