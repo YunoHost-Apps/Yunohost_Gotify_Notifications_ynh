@@ -34,6 +34,11 @@ A collection of Yunohost webhooks to send notifications using Gotify
 
 
 **Paketatutako bertsioa:** 0.1~ynh1
+
+## Pantaila-argazkiak
+
+![Yunohost_Gotify_Notifications(r)en pantaila-argazkia](./doc/screenshots/IMG_20241205_224629.png)
+
 ## Dokumentazioa eta baliabideak
 
 - Erabiltzaileen dokumentazio ofiziala: <https://github.com/DeMiro5001/Yunohost_Gotify_Notifications/blob/main/README.md>

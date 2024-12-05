@@ -34,6 +34,11 @@ Une collection de webhooks Yunohost pour envoyer des notifications en utilisant 
 
 
 **Version incluse :** 0.1~ynh1
+
+## Captures d’écran
+
+![Capture d’écran de Yunohost_Gotify_Notifications](./doc/screenshots/IMG_20241205_224629.png)
+
 ## Documentations et ressources
 
 - Documentation officielle utilisateur : <https://github.com/DeMiro5001/Yunohost_Gotify_Notifications/blob/main/README.md>
