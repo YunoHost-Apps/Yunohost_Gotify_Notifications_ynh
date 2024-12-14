@@ -39,6 +39,11 @@ ram.runtime = "50M"
     ask.fr = "Jeton de l'application pour ce serveur"
     type = "string"
 
+    [install.server]
+    ask.en = "This server identity"
+    ask.fr = "L'identification de ce serveur"
+    type = "string"
+    
 [resources]
 
     [resources.sources]
