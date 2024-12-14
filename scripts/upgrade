@@ -20,7 +20,7 @@ ynh_setup_source --dest_dir="$data_dir"
 ynh_script_progression "Updating $app's configuration files..."
 
 cd $hooks_dir
-mkdir post_domain_add post_domain_remove post_cert_update backup restore post_app_install post_app_remove post_app_upgrade 2>&1
+create_dirs post_domain_add post_domain_remove post_cert_update backup restore post_app_install post_app_remove post_app_upgrade 2>&1
 
 rm "$hooks_dir/post_domain_add/01-post_domain_add_$app"
 rm "$hooks_dir/post_domain_remove/01-post_domain_remove_$app"
