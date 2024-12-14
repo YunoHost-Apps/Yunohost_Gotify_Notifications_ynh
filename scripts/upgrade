@@ -12,6 +12,8 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
+ynh_safe_rm $data_dir
+
 ynh_setup_source --dest_dir="$data_dir"
 
 #=================================================
@@ -22,15 +24,15 @@ ynh_script_progression "Updating $app's configuration files..."
 cd $hooks_dir
 create_dirs post_domain_add post_domain_remove post_cert_update backup restore post_app_install post_app_remove post_app_upgrade 2>&1
 
-rm "$hooks_dir/post_domain_add/01-post_domain_add_$app"
-rm "$hooks_dir/post_domain_remove/01-post_domain_remove_$app"
-rm "$hooks_dir/post_cert_update/01-post_cert_update_$app"
-rm "$hooks_dir/backup/01-backup_$app"
-rm "$hooks_dir/restore/01-restore_$app"
-rm "$hooks_dir/post_app_install/01-post_app_install_$app"
-rm "$hooks_dir/post_app_remove/01-post_app_remove_$app"
-rm "$hooks_dir/post_app_upgrade/01-post_app_upgrade_$app"
-rm "/etc/profile.d/gotify_ssh_login_$app.sh"
+ynh_safe_rm  "$hooks_dir/post_domain_add/01-post_domain_add_$app"
+ynh_safe_rm  "$hooks_dir/post_domain_remove/01-post_domain_remove_$app"
+ynh_safe_rm  "$hooks_dir/post_cert_update/01-post_cert_update_$app"
+ynh_safe_rm  "$hooks_dir/backup/01-backup_$app"
+ynh_safe_rm  "$hooks_dir/restore/01-restore_$app"
+ynh_safe_rm  "$hooks_dir/post_app_install/01-post_app_install_$app"
+ynh_safe_rm  "$hooks_dir/post_app_remove/01-post_app_remove_$app"
+ynh_safe_rm  "$hooks_dir/post_app_upgrade/01-post_app_upgrade_$app"
+ynh_safe_rm  "/etc/profile.d/gotify_ssh_login_$app.sh"
 
 ynh_config_add --template="$data_dir/post_domain_add/01-post_domain_add" --destination="$hooks_dir/post_domain_add/01-post_domain_add_$app"
 ynh_config_add --template="$data_dir/post_domain_remove/01-post_domain_remove" --destination="$hooks_dir/post_domain_remove/01-post_domain_remove_$app"
