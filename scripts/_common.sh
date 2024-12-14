@@ -3,7 +3,7 @@
 #=================================================
 # COMMON VARIABLES AND CUSTOM HELPERS
 #=================================================
-hooks_dir="/etc/yunohost/hooks.d/"
+hooks_dir="/etc/yunohost/hooks.d"
 
 # Function to create directories if they don't exist
 create_dirs() {
