@@ -8,6 +8,10 @@
 source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
+gotify=$(ynh_app_setting_get --app=$app --key=gotify)
+apptoken=$(ynh_app_setting_get --app=$app --key=apptoken)
+server=$(ynh_app_setting_get --app=$app --key=server)
+
 #=================================================
 # RESTORE THE DATA DIRECTORY
 #=================================================
