@@ -12,15 +12,17 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Removing system configurations related to $app..."
 
-rm "$hooks_dir/post_domain_add/01-post_domain_add_$app"
-rm "$hooks_dir/post_domain_remove/01-post_domain_remove_$app"
-rm "$hooks_dir/post_cert_update/01-post_cert_update_$app"
-rm "$hooks_dir/backup/01-backup_$app"
-rm "$hooks_dir/restore/01-restore_$app"
-rm "$hooks_dir/post_app_install/01-post_app_install_$app"
-rm "$hooks_dir/post_app_remove/01-post_app_remove_$app"
-rm "$hooks_dir/post_app_upgrade/01-post_app_upgrade_$app"
-rm "/etc/profile.d/gotify_ssh_login_$app.sh"
+ynh_safe_rm $data_dir
+
+ynh_safe_rm  "$hooks_dir/post_domain_add/01-post_domain_add_$app"
+ynh_safe_rm  "$hooks_dir/post_domain_remove/01-post_domain_remove_$app"
+ynh_safe_rm  "$hooks_dir/post_cert_update/01-post_cert_update_$app"
+ynh_safe_rm  "$hooks_dir/backup/01-backup_$app"
+ynh_safe_rm  "$hooks_dir/restore/01-restore_$app"
+ynh_safe_rm  "$hooks_dir/post_app_install/01-post_app_install_$app"
+ynh_safe_rm  "$hooks_dir/post_app_remove/01-post_app_remove_$app"
+ynh_safe_rm  "$hooks_dir/post_app_upgrade/01-post_app_upgrade_$app"
+ynh_safe_rm  "/etc/profile.d/gotify_ssh_login_$app.sh"
 
 #=================================================
 # END OF SCRIPT
