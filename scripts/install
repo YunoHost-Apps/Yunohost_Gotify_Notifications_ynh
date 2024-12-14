@@ -20,6 +20,8 @@ ynh_app_setting_set --key=token --value=$token
 server_id=$(cat /etc/machine-id)
 ynh_app_setting_set --key=server_id --value=$server_id
 
+ynh_app_setting_set --key=server --value=$server
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
