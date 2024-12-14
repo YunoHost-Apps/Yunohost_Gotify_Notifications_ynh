@@ -6,3 +6,4 @@ test_format = 1.0
 
     args.apptoken = "1234567890"
     args.gotify ="https://yunohost.org"
+    args.server = "My yunohost home server"
