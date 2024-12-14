@@ -27,6 +27,7 @@ ynh_app_setting_set --key=server --value=$server
 #=================================================
 ynh_script_progression "Setting up source files..."
 
+create_dirs $yuno_apps/$app/conf
 ynh_setup_source --dest_dir="$yuno_apps/$app/conf"
 
 #=================================================
