@@ -4,6 +4,7 @@
 # COMMON VARIABLES AND CUSTOM HELPERS
 #=================================================
 hooks_dir="/etc/yunohost/hooks.d"
+yuno_apps="/etc/yunohost/apps"
 
 # Function to create directories if they don't exist
 create_dirs() {
