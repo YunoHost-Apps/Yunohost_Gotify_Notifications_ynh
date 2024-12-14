@@ -8,8 +8,6 @@
 source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
-hooks_dir="/etc/yunohost/hooks.d"
-
 #=================================================
 # RESTORE THE DATA DIRECTORY
 #=================================================
