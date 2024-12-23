@@ -37,6 +37,8 @@ ynh_script_progression "Adding $app's configuration files..."
 current_path=$(pwd)
 cd $hooks_dir
 create_dirs post_domain_add post_domain_remove post_cert_update backup restore post_app_install post_app_remove post_app_upgrade
+cd $current_path/hooks
+create_dirs post_domain_add post_domain_remove post_cert_update backup restore post_app_install post_app_remove post_app_upgrade
 
 ynh_config_add --template="$data_dir/post_domain_add/01-post_domain_add" --destination="$current_path/hooks/post_domain_add/01-post_domain_add_$app"
 ynh_config_add --template="$data_dir/post_domain_remove/01-post_domain_remove" --destination="$current_path/hooks/post_domain_remove/01-post_domain_remove_$app"
