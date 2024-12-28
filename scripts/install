@@ -35,7 +35,7 @@ ynh_setup_source --dest_dir="$data_dir/src"
 ynh_script_progression "Adding $app's configuration files..."
 
 mkdir -p $data_dir/hooks/etc/yunohost/hooks.d
-cd $data_dir/hooks/hooks/etc/yunohost/hooks.d
+cd $data_dir/hooks/etc/yunohost/hooks.d
 
 create_dirs post_domain_add post_domain_remove post_cert_update backup restore post_app_install post_app_remove post_app_upgrade etc/profile.d
 
