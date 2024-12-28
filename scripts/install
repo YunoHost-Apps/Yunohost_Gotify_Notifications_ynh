@@ -37,7 +37,7 @@ ynh_script_progression "Adding $app's configuration files..."
 mkdir -p $data_dir/hooks/etc/yunohost/hooks.d
 cd $data_dir/hooks/etc/yunohost/hooks.d
 
-create_dirs post_domain_add post_domain_remove post_cert_update backup restore post_app_install post_app_remove post_app_upgrade etc/profile.d
+create_dirs post_domain_add post_domain_remove post_cert_update backup restore post_app_install post_app_remove post_app_upgrade etc $data_dir/hooks/etc/profile.d
 
 ynh_config_add --template="$data_dir/src/post_domain_add/01-post_domain_add" --destination="$data_dir/hooks/etc/yunohost/hooks.d/post_domain_add/01-post_domain_add_$app"
 ynh_config_add --template="$data_dir/src/post_domain_remove/01-post_domain_remove" --destination="$data_dir/hooks/etc/yunohost/hooks.d/post_domain_remove/01-post_domain_remove_$app"
