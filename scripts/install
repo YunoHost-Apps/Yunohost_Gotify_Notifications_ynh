@@ -34,23 +34,21 @@ ynh_setup_source --dest_dir="$data_dir/src"
 #=================================================
 ynh_script_progression "Adding $app's configuration files..."
 
-current_path=$(pwd)
-cd $hooks_dir
-create_dirs post_domain_add post_domain_remove post_cert_update backup restore post_app_install post_app_remove post_app_upgrade
-cd $current_path/..
-mkdir hooks
-cd hooks
-create_dirs post_domain_add post_domain_remove post_cert_update backup restore post_app_install post_app_remove post_app_upgrade
+mkdir $data_dir/hooks
+cd $data_dir/hooks
+create_dirs post_domain_add post_domain_remove post_cert_update backup restore post_app_install post_app_remove post_app_upgrade etc/profile.d
 
-ynh_config_add --template="$data_dir/post_domain_add/01-post_domain_add" --destination="$current_path/../hooks/post_domain_add/01-post_domain_add_$app"
-ynh_config_add --template="$data_dir/post_domain_remove/01-post_domain_remove" --destination="$current_path/../hooks/post_domain_remove/01-post_domain_remove_$app"
-ynh_config_add --template="$data_dir/post_cert_update/01-post_cert_update" --destination="$current_path/../hooks/post_cert_update/01-post_cert_update_$app"
-ynh_config_add --template="$data_dir/backup/01-backup" --destination="$current_path/../hooks/backup/01-backup_$app"
-ynh_config_add --template="$data_dir/restore/01-restore" --destination="$current_path/../hooks/restore/01-restore_$app"
-ynh_config_add --template="$data_dir/post_app_install/01-post_app_install" --destination="$current_path/../hooks/post_app_install/01-post_app_install_$app"
-ynh_config_add --template="$data_dir/post_app_remove/01-post_app_remove" --destination="$current_path/../hooks/post_app_remove/01-post_app_remove_$app"
-ynh_config_add --template="$data_dir/post_app_upgrade/01-post_app_upgrade" --destination="$current_path/../hooks/post_app_upgrade/01-post_app_upgrade_$app"
-ynh_config_add --template="$data_dir/etc/profile.d/gotify_ssh_login.sh" --destination="/etc/profile.d/gotify_ssh_login_$app.sh"
+ynh_config_add --template="$data_dir/src/post_domain_add/01-post_domain_add" --destination=$data_dir/hooks/post_domain_add/01-post_domain_add_$app"
+ynh_config_add --template="$data_dir/src/post_domain_remove/01-post_domain_remove" --destination="$data_dir/hooks/post_domain_remove/01-post_domain_remove_$app"
+ynh_config_add --template="$data_dir/src/post_cert_update/01-post_cert_update" --destination="$data_dir/hooks/post_cert_update/01-post_cert_update_$app"
+ynh_config_add --template="$data_dir/src/backup/01-backup" --destination="$data_dir/hooks/backup/01-backup_$app"
+ynh_config_add --template="$data_dir/src/restore/01-restore" --destination="$data_dir/hooks/restore/01-restore_$app"
+ynh_config_add --template="$data_dir/src/post_app_install/01-post_app_install" --destination="$data_dir/hooks/post_app_install/01-post_app_install_$app"
+ynh_config_add --template="$data_dir/src/post_app_remove/01-post_app_remove" --destination="$data_dir/hooks/post_app_remove/01-post_app_remove_$app"
+ynh_config_add --template="$data_dir/src/post_app_upgrade/01-post_app_upgrade" --destination="$data_dir/hooks/post_app_upgrade/01-post_app_upgrade_$app"
+ynh_config_add --template="$data_dir/src/etc/profile.d/gotify_ssh_login.sh" --destination="$data_dir/hooks/etc/profile.d/gotify_ssh_login_$app.sh"
+
+cp -r $data_dir/hooks /etc/yunohost/hooks.d
 
 #=================================================
 # END OF SCRIPT
