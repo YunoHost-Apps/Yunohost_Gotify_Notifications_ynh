@@ -38,6 +38,15 @@ ynh_replace --match="__TOKEN__" --replace="$token" --file="../hooks/post_cert_up
 ynh_replace --match="__TOKEN__" --replace="$token" --file="../hooks/post_domain_add"
 ynh_replace --match="__TOKEN__" --replace="$token" --file="../hooks/post_domain_remove"
 
+ynh_replace --match="__SERVER__" --replace="$server" --file="../hooks/backup"
+ynh_replace --match="__SERVER__" --replace="$server" --file="../hooks/restore"
+ynh_replace --match="__SERVER__" --replace="$server" --file="../hooks/post_app_install"
+ynh_replace --match="__SERVER__" --replace="$server" --file="../hooks/post_app_remove"
+ynh_replace --match="__SERVER__" --replace="$server" --file="../hooks/post_app_upgrade"
+ynh_replace --match="__SERVER__" --replace="$server" --file="../hooks/post_cert_update"
+ynh_replace --match="__SERVER__" --replace="$server" --file="../hooks/post_domain_add"
+ynh_replace --match="__SERVER__" --replace="$server" --file="../hooks/post_domain_remove"
+
 #=================================================
 # UPDATE A CONFIG FILE
 #=================================================
