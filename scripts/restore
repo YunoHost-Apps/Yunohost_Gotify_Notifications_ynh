@@ -17,7 +17,7 @@ server=$(ynh_app_setting_get --app=$app --key=server)
 
 ynh_script_progression "Restoring $app's configuration files..."
 
-ynh_config_add --template="$data_dir/etc/profile.d/gotify_ssh_login.sh" --destination="/etc/profile.d/gotify_ssh_login_$app.sh"
+ynh_config_add --template="../conf/gotify_ssh_login.sh" --destination="/etc/profile.d/gotify_ssh_login_$app.sh"
 chmod 600 "/etc/profile.d/gotify_ssh_login_$app.sh"
 
 #=================================================
