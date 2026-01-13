@@ -40,8 +40,8 @@ ram.runtime = "1M"
     type = "string"
 
     [install.server]
-    ask.en = "This server identity (this will be used in the title of the notification)"
-    ask.fr = "L'identification de ce serveur (ceci sera utilisé dans le titre de la notification)"
+    ask.en = "Display name for this server (this will be used in the title of notifications)"
+    ask.fr = "Nom d'affichage de ce serveur (ceci sera utilisé dans le titre des notifications)"
     type = "string"
     
 [resources]
