@@ -5,19 +5,11 @@
 #=================================================
 
 # Keep this path for calling _common.sh inside the execution's context of backup and restore scripts
-source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
 gotify=$(ynh_app_setting_get --app=$app --key=gotify)
 apptoken=$(ynh_app_setting_get --app=$app --key=apptoken)
 server=$(ynh_app_setting_get --app=$app --key=server)
-
-#=================================================
-# RESTORE THE DATA DIRECTORY
-#=================================================
-ynh_script_progression "Restoring the data directory..."
-
-ynh_restore "$data_dir"
 
 #=================================================
 # SETUP HOOKS
