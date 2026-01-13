@@ -23,15 +23,9 @@ ynh_app_setting_set --key=server_id --value=$server_id
 ynh_app_setting_set --key=server --value=$server
 
 #=================================================
-# DOWNLOAD, CHECK AND UNPACK SOURCE
-#=================================================
-ynh_script_progression "Setting up source files..."
-
-ynh_setup_source --dest_dir="$data_dir"
-
-#=================================================
 # SETUP HOOKS
 #=================================================
+ynh_script_progression "Setting up hooks..."
 
 ynh_replace --match="__GOTIFYPATH__" --replace="$gotifypath" --file="../hooks/backup"
 ynh_replace --match="__GOTIFYPATH__" --replace="$gotifypath" --file="../hooks/restore"
@@ -65,7 +59,7 @@ ynh_replace --match="__SERVER__" --replace="$server" --file="../hooks/post_domai
 #=================================================
 ynh_script_progression "Adding $app's configuration files..."
 
-ynh_config_add --template="$data_dir/etc/profile.d/gotify_ssh_login.sh" --destination="/etc/profile.d/gotify_ssh_login_$app.sh"
+ynh_config_add --template="conf/gotify_ssh_login.sh" --destination="/etc/profile.d/gotify_ssh_login_$app.sh"
 
 #=================================================
 # END OF SCRIPT
