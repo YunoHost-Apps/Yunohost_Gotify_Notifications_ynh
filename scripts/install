@@ -59,7 +59,7 @@ ynh_replace --match="__SERVER__" --replace="$server" --file="../hooks/post_domai
 ynh_script_progression "Adding $app's configuration files..."
 
 # Strip https://
-gotifypath=${gotifypath#*//}
+# gotifypath=${gotifypath#*//}
 
 ynh_config_add --template="../conf/gotify_ssh_login.sh" --destination="/etc/profile.d/gotify_ssh_login_$app.sh"
 
