@@ -4,15 +4,12 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
-source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
 # REMOVE SYSTEM CONFIGURATIONS
 #=================================================
 ynh_script_progression "Removing system configurations related to $app..."
-
-ynh_safe_rm $data_dir
 
 ynh_safe_rm  "/etc/profile.d/gotify_ssh_login_$app.sh"
 
