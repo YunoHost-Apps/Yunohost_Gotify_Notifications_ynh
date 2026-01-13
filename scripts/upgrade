@@ -4,21 +4,13 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
-source _common.sh
 source /usr/share/yunohost/helpers
-
-#=================================================
-# DOWNLOAD, CHECK AND UNPACK SOURCE
-#=================================================
-ynh_script_progression "Upgrading source files..."
-
-ynh_safe_rm $data_dir
-
-ynh_setup_source --dest_dir="$data_dir"
 
 #=================================================
 # SETUP HOOKS
 #=================================================
+
+ynh_script_progression "Setting up hooks..."
 
 ynh_replace --match="__GOTIFYPATH__" --replace="$gotifypath" --file="../hooks/backup"
 ynh_replace --match="__GOTIFYPATH__" --replace="$gotifypath" --file="../hooks/restore"
@@ -54,7 +46,12 @@ ynh_script_progression "Updating $app's configuration files..."
 
 ynh_safe_rm  "/etc/profile.d/gotify_ssh_login_$app.sh"
 
-ynh_config_add --template="$data_dir/etc/profile.d/gotify_ssh_login.sh" --destination="/etc/profile.d/gotify_ssh_login_$app.sh"
+# Strip https://
+# gotifypath=${gotifypath#*//}
+
+ynh_config_add --template="../conf/gotify_ssh_login.sh" --destination="/etc/profile.d/gotify_ssh_login_$app.sh"
+
+chmod 600 "/etc/profile.d/gotify_ssh_login_$app.sh"
 
 #=================================================
 # END OF SCRIPT
