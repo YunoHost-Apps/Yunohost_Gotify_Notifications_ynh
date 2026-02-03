@@ -7,7 +7,7 @@ name = "Yuno_Goti_Notify"
 description.en = "A collection of Yunohost hooks to send notifications to a Gotify server"
 description.fr = "Une collection de hooks Yunohost pour envoyer des notifications vers un serveur Gotify"
 
-version = "0.1~ynh3"
+version = "0.1~ynh4"
 
 maintainers = ["DeMiro5001"]
 
