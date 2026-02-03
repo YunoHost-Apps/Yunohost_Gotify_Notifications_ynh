@@ -1,5 +1,31 @@
 #!/bin/bash
 source /usr/share/yunohost/helpers
-current_date=$(date +"%d/%m/%Y %T")
-notif="$current_date : Domain $1 added"
-curl -X POST "__GOTIFYPATH__/message?token=__TOKEN__" -F "title=__SERVER__ - Domains" -F "message=$notif" > /dev/null 2>&1
+
+# --- Configuration ---
+RETRY_LIMIT=3
+RETRY_DELAY=15
+URL="__GOTIFYPATH__/message?token=__TOKEN__"
+TITLE="__SERVER__ - Domains"
+MESSAGE="$(date +'%d/%m/%Y %T') : Domain $1 added"
+
+# --- Retry Loop ---
+count=0
+while [ $count -lt $RETRY_LIMIT ]; do
+    curl -s -f --max-time 10 \
+         -X POST "$URL" \
+         -F "title=$TITLE" \
+         -F "message=$MESSAGE" > /dev/null 2>&1
+
+    if [ $? -eq 0 ]; then
+        exit 0
+    else
+        count=$((count + 1))
+        echo "WARNING - Gotify notification attempt $count failed. Retrying in $RETRY_DELAY seconds..."
+        [ $count -lt $RETRY_LIMIT ] && sleep $RETRY_DELAY
+    fi
+done
+# Report failed notifs 
+echo "ERROR - Gotify notification failed after $RETRY_LIMIT attempts. The service might be temporarily down or Gotify server is unreachable."
+
+# Do not through an error because of a failed notification
+exit 0
